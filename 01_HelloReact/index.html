@@ -9,8 +9,18 @@
         </div>
         <script type="text/javascript">
             var h1 = React.createElement('h1', null, 'Hello React!')
+            class HelloWorld extends React.Component {
+                render(){
+                    return  React.createElement('h1', this.props, 'Hello ' + this.props.frameworkName + '!!!')
+                }
+            }
             ReactDOM.render(
-                React.createElement('div', null, h1, h1),
+                React.createElement(
+                    'div', null,
+                    React.createElement(HelloWorld, {id: 'ember', frameworkName: 'Ember.js', title: 'A FW for creating ambitious web app.'}),
+                    React.createElement(HelloWorld, {id: 'backbone', frameworkName: 'Backbone.js', title: 'Structure to web app.'}),
+                    React.createElement(HelloWorld, {id: 'angular', frameworkName: 'Angular.js', title: 'Super JavaScript MVW FW.'})
+                ),                
                 document.getElementById('content')
             )
         </script>
